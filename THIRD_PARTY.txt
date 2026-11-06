@@ -1,0 +1,14 @@
+Test Bank Generator 2.0 third-party notices
+
+JSZip 3.10.1
+https://stuk.github.io/jszip/
+Distributed under its MIT license; see vendor/JSZIP_LICENSE.txt.
+
+PDF.js / pdfjs-dist 5.6.205
+https://mozilla.github.io/pdf.js/
+Apache License 2.0; see vendor/PDFJS_LICENSE.txt.
+The bundled legacy main and worker modules were adapted to local classic scripts:
+export statements and source-map references were removed, import.meta.url was
+replaced with a fixed unused Node fallback URL, and a small global API was exposed.
+The worker runs through PDF.js's local main-thread handler for file-open use.
+No claim is made that this modified distribution is an official Mozilla release.

@@ -1,0 +1,135 @@
+TEST BANK GENERATOR
+Version 2.0 • November 6, 2026
+
+START OR UPDATE
+1. Save a bank backup from your current app before updating.
+2. Extract the ENTIRE ZIP into a permanent folder. Keep document-import.js and
+   the vendor folder alongside Question_Bank.html.
+3. Double-click Question_Bank.html to open it in your browser.
+4. If updating in the same location, replace all supporting files as well as
+   the HTML file. If the bank is empty in the new location, restore your backup.
+5. Click Import test files and choose .tst, .doc, .docx, or .pdf files.
+
+No installation, subscription, or API key is required for the local bank.
+Documents are processed locally in your browser. Google creation scripts need
+internet access and authorization when you choose to run them in Google.
+
+WHAT CHANGED IN VERSION 2.0
+The page is named Test Bank Generator, the former tagline is removed, and the
+page background is darker gray for clearer separation from white text fields.
+Word and PDF files can now be imported into the same reusable question bank.
+Word/PDF imports show proposed questions before they are added to the bank.
+
+IMPORT FORMATS
+.tst
+  Supports the legacy Windows ExamView 04 format used by the two supplied tests.
+  Multiple choice, completion, short answer, problem, and essay items are
+  supported. Source diagrams and teacher-reference bitmap images are retained.
+  Legacy reaction-arrow characters are automatically converted from ® to →.
+  Unsupported equation objects have visible placeholders requiring repair.
+
+.docx
+  Reads Word paragraphs, supported automatic list numbering, lettered choices,
+  ordinary embedded PNG/JPEG/GIF/BMP images, and explicit answer-key sections.
+  Supported images are associated with the question preceding them.
+  Superscript/subscript digits are retained as Unicode characters.
+  Complex equation objects, linked pictures, and unsupported image formats are
+  marked for repair. Complex tables, text boxes, and unusual layouts need review.
+
+.doc
+  Reads unencrypted Word 97–2003 compound-file text, plus RTF or HTML saved with
+  a .doc extension. Embedded diagrams, advanced equations, and automatic legacy
+  list numbering may require repair. Explicit question numbers work best.
+  For best image and numbering recovery, save a .doc file as .docx in Word or
+  LibreOffice and import that copy. Keep the original.
+
+.pdf
+  Reads PDFs with selectable/searchable text, up to 100 pages per file.
+  Scanned image-only PDFs need OCR first; this app does not perform OCR.
+  PDF text order can differ from its visible layout. Check question splits,
+  multi-column content, equations, and answer-key association in the preview.
+  Pages containing graphics are retained as source previews. In a question's
+  editor, choose View source images and crop a diagram, select the source page,
+  drag around a diagram, and attach the selected area. Crop only material
+  students should see. Whole source pages are not automatically added to tests.
+
+DOCUMENT QUESTION RECOGNITION
+Number questions as 1. or 1), and choices as A), B), A., B., etc. These may be
+on separate lines; ordinary inline lettered choices are also recognized.
+Word automatic numbered lists are supported when their numbering is readable.
+Use an Answer Key or Answers heading, followed by numbered answers, to import
+keys. Inline Answer: B notation and starred choices can also indicate answers.
+The importer does not use AI to invent missing correct answers. Every imported
+question starts as Needs review. No file is added if no numbered questions can
+be identified. Review the proposed questions and uncheck any false matches
+before choosing Add selected questions.
+
+REVIEW AND ORGANIZE
+Click a question to edit its text, category, tags, choices, answer, points,
+and diagrams. Click Save question to save editor changes.
+Imported question images appear below the question. Reference-answer diagrams
+appear teacher-side below the reference answer. Source Word images and PDF
+page previews can be cropped and attached using the source-images button.
+If you add a replacement diagram for an unrecovered object, remove its visible
+placeholder and check that the question now contains all necessary information.
+
+SELECT AND CLEAR
+Select all checks every question, including those hidden by active filters.
+Select filtered questions adds the currently matching questions to selection.
+Clear selection unchecks questions without deleting them.
+Clear imported questions removes imported questions and original source-file
+records after confirmation. Manually created questions remain. A full backup
+download starts before clearing; keep it if you may want those questions again.
+Cleared test files can be reimported.
+
+SAVE YOUR BANK
+The bank saves in browser storage on this computer. Keep using the same
+browser/profile. Moving the app or clearing browsing data can affect access.
+Save bank backup downloads a JSON file containing questions, diagrams, source
+previews, and original imported files. Keep regular backups in a safe folder.
+Restore bank backup merges new question IDs and source files; existing question
+IDs keep their current edits. Older version-1 backups remain supported.
+Duplicate source files are skipped by file content. Similar questions from
+different documents remain separate so their source context is preserved.
+
+EXPORT
+Word test / Google Docs
+  Exports editable .docx files. Open in Word, or upload to Drive and open with
+  Google Docs. Check pagination before printing.
+Word answer key
+  Exports a separate teacher key with reference answers and answer diagrams.
+Moodle XML
+  Review and save selected questions first. Multiple-choice questions need a
+  correct answer. Import via Question bank > Import > Moodle XML format.
+  Enable Get category from file to use the app's categories. Written responses
+  use Moodle's essay type for manual grading. Reference answers/images remain
+  in teacher-side grader information. Trial-import a small category first.
+Google Forms and Docs script
+  Exports a .gs file. Create a project at https://script.google.com, paste the
+  script into Code.gs, and run createGoogleForm or createGoogleDoc. Authorize
+  when Google asks; the execution log shows the resulting link. Each run
+  creates a new file. Review its settings before sharing. A school administrator
+  may restrict Apps Script. Forms exports require reviewed questions, distinct
+  choice text, whole-number points, and at most 300 content items. Written
+  responses require manual grading. Teacher reference answers are not shown.
+Google Classroom
+  Attach the generated Form or Google Doc to an assignment yourself. The app
+  does not connect to Classroom or publish assignments.
+
+VALIDATION AND PRACTICAL LIMITS
+Regression checks cover both supplied ExamView files (38 and 24 questions),
+stored multiple-choice keys, diagrams, duplicate imports, backup handling,
+clearing imports, and existing exports. New checks read real DOCX, binary DOC,
+RTF-in-DOC, and PDF fixtures, recover question splits and known answer keys,
+read inherited Word list numbering, decode Word images, render local PDF page
+previews, identify image-only PDFs, and verify import-preview selection and
+storage. Google script flow uses service doubles, not a live account. A full
+interactive browser-engine test and live Moodle/Google import were not available
+here. Start with a short reviewed selection before relying on automatic grading.
+The input file limit is 64 MB; backup restores are limited to 200 MB.
+
+FILES AND THIRD-PARTY COMPONENTS
+Question_Bank.html contains the bank interface and ExamView parser.
+document-import.js contains the Word/PDF extraction and question-splitting code.
+vendor contains bundled JSZip and PDF.js components and their license files.
+All required scripts are included locally; no CDN is used. See THIRD_PARTY.txt.
